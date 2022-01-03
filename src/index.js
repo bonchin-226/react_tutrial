@@ -7,6 +7,8 @@ const App = () => {
     <div>
       <h2>Reactハンズオン！</h2>
       <ColorfulMsg color="blue">Reactは難しくないよー</ColorfulMsg>
+      <ColorfulMsg color="green">Vueも難しくないよー</ColorfulMsg>
+      <ColorfulMsg color="red">Angularは、、、</ColorfulMsg>
     </div>
   );
 };
