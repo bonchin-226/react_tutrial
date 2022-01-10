@@ -13,6 +13,13 @@ class MsgList extends React.Component {
     axios
       .get("https://myjson.dit.upm.es/api/bins/i3c3")
       .then((res) => this.setState({ msgList: res.data.msgList }))
+
+      /*      .then(function (res) {
+        console.log(res.data.msgList);
+        this.setState({ msgList: res.data.msgList });
+        console.log("axios");
+      })
+*/
       .catch((err) => alert(err));
   };
 
