@@ -1,15 +1,18 @@
 import React from "react";
 import axios from "axios";
+import ColorfulMsg from "./ColorfulMsg";
 
 class MsgList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      msgList: []
+    };
   }
   handleClick = () => {
     axios
-      .get("http://192.168.100.31/rails/built_in_sample/messages")
-      .then((res) => console.log(res))
+      .get("https://myjson.dit.upm.es/api/bins/i3c3")
+      .then((res) => this.setState({ msgList: res.data.msgList }))
       .catch((err) => alert(err));
   };
 
@@ -17,6 +20,11 @@ class MsgList extends React.Component {
     return (
       <>
         <button onClick={this.handleClick}>メッセージ取得</button>
+        {this.state.msgList.map((val) => (
+          <ColorfulMsg key={val.message} color={val.color}>
+            {val.message}
+          </ColorfulMsg>
+        ))}
       </>
     );
   }
